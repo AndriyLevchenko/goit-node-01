@@ -1,5 +1,6 @@
 {
   "name": "yes",
+  "type": "module",
   "version": "1.0.0",
   "description": "\"\"",
   "main": "index.js",
@@ -20,5 +21,8 @@
   "homepage": "https://github.com/AndriyLevchenko/goit-node-01#readme",
   "devDependencies": {
     "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "nanoid": "^3.3.4"
   }
 }
