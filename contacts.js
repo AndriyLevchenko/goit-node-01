@@ -1,7 +1,6 @@
-const nanoid = require('nanoid');
-
 const fs = require('fs').promises;
 const path = require('path');
+const {randomUUID} = require('crypto');
 
 const contactsPath = path.resolve('./db/contacts.json');
 
@@ -52,12 +51,12 @@ async function addContact(name, email, phone) {
     try {
         const data = await fs.readFile(contactsPath, "utf-8");
         const parsedData = await JSON.parse(data);
-        const id = await nanoid();
+        const id = randomUUID();
     
         const newContact = { id, name, email, phone };
         const updateContacts = [...parsedData, newContact];
         await fs.writeFile(contactsPath, JSON.stringify(updateContacts), "utf-8");
-        await console.log(`Contact with id=${id} is added`);
+        console.log(`Contact with id=${id} is added`);
     } catch (e) {
         console.error(e);
     }
